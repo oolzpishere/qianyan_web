@@ -3,4 +3,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  mount Frontend::Engine   => '/', as: 'frontend'
+  mount Backend::Engine   => '/', as: 'backend'
+  
+  
 end
