@@ -50,7 +50,7 @@ install_plugin Capistrano::Puma  # Default puma tasks
 install_plugin Capistrano::Puma::Systemd
 install_plugin Capistrano::Puma::Nginx  # if you want to upload a nginx site template
 
-require 'capistrano/sidekiq'
-install_plugin Capistrano::Sidekiq  # Default sidekiq tasks
+# require 'capistrano/sidekiq'
+# install_plugin Capistrano::Sidekiq  # Default sidekiq tasks
 # Then select your service manager
-install_plugin Capistrano::Sidekiq::Systemd
+# install_plugin Capistrano::Sidekiq::Systemd

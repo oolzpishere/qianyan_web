@@ -91,7 +91,7 @@ set :puma_systemctl_user, :user
 set :rbenv_ruby, '3.0.3'
 # set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_custom_path, "/home/ubuntu/.rbenv"
-set :rbenv_prefix, "#{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_prefix, "source /home/ubuntu/.zshrc; #{fetch(:rbenv_path)}/bin/rbenv exec"
 # set :rbenv_prefix, "source /home/ubuntu/.zshrc; #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 set :rbenv_map_bins, %w{rake gem bundle ruby rails puma pumactl}
