@@ -1,0 +1,41 @@
+@layer components {
+  .btn{
+    @apply inline-flex justify-center items-center
+    whitespace-nowrap
+    transition rounded-lg shadow-md
+  }
+  .btn-sm{
+    @apply px-4 py-2 text-sm font-medium
+  }
+  .btn-xs{
+    @apply px-3 py-2 text-xs font-medium
+  }
+  .btn-primary {
+    @apply btn bg-blue-600 text-white
+     hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+  .btn-success {
+    @apply bg-green-600 text-white
+    hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+
+  .btn-cyan {
+    @apply btn text-white
+    bg-cyan-600 hover:bg-cyan-700;
+  }
+  .btn-cyan.active {
+    @apply bg-cyan-800;
+  }
+  .btn-gray {
+    @apply btn text-white bg-gray-600
+    hover:bg-gray-700;
+  }
+  .btn-cyan-outline {
+    @apply inline-flex px-4 py-2 my-1
+    text-sm font-medium text-cyan-600 whitespace-nowrap
+    transition border border-cyan-600 rounded-md shadow-sm hover:bg-cyan-600 hover:text-white;
+  }
+  .btn-cyan-outline.active {
+    @apply text-white bg-cyan-600;
+  }
+}

@@ -1,0 +1,23 @@
+@layer components{
+  .table-striped-gray{
+  }
+  .table-striped-gray thead{
+    @apply block md:table-header-group;
+  }
+  .table-striped-gray thead tr{
+    @apply border md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative;
+  }
+  .table-striped-gray thead tr th{
+    @apply bg-gray-600 text-white font-bold md:border border-gray-300 block md:table-cell;
+  }
+
+  .table-striped-gray tbody{
+    @apply table-row-group;
+  }
+  .table-striped-gray tbody tr{
+    @apply odd:bg-gray-400 even:bg-white border border-none block table-row;
+  }
+  .table-striped-gray tbody tr td{
+    @apply p-1 md:border md:border-gray-300 text-left block md:table-cell;
+  }
+}
