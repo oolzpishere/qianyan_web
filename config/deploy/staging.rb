@@ -59,3 +59,22 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+server "staging.qianyanketang.com",
+       user: "ubuntu",
+       roles: %w{web app},
+       ssh_options: {
+         user: "ubuntu", # overrides user setting above
+         keys: %w(/Users/leeli/.ssh/qy_tencent_qingyun),
+         forward_agent: false,
+         auth_methods: %w(publickey)
+         # password: "please use keys"
+       }
+
+set :deploy_to, "/var/www/rails/#{fetch(:application)}_staging"
+
+set :puma_conf, "#{shared_path}/puma_staging.rb"
+set :puma_bind, File.join("unix://#{shared_path}", 'tmp', 'sockets', 'puma_staging.sock')
+
+set :nginx_server_name, "staging.qianyanketang.com"
+set :nginx_use_ssl, false
