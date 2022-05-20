@@ -91,3 +91,6 @@ gem 'frontend', path: 'components/frontend'
 
 gem 'listen'
 gem 'virtus'
+
+# 20220520 useless, use postcss in yarn.
+# gem "tailwindcss-rails", "~> 2.0"
