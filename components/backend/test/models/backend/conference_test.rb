@@ -1,7 +1,7 @@
 require "test_helper"
 
 module Backend
-  class SeasonTest < ActiveSupport::TestCase
+  class ConferenceTest < ActiveSupport::TestCase
     # test "the truth" do
     #   assert true
     # end
