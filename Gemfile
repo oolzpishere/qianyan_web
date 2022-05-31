@@ -86,11 +86,15 @@ group :test do
   gem "webdrivers"
 end
 
+gem 'admin', path: 'components/admin'
 gem 'backend', path: 'components/backend'
 gem 'frontend', path: 'components/frontend'
+gem 'jsj', path: 'components/jsj'
 
 gem 'listen'
 gem 'virtus'
 
 # 20220520 useless, use postcss in yarn.
 # gem "tailwindcss-rails", "~> 2.0"
+
+gem 'prawn'

@@ -1,4 +1,10 @@
 PATH
+  remote: components/admin
+  specs:
+    admin (0.1.0)
+      rails (>= 7.0.3)
+
+PATH
   remote: components/backend
   specs:
     backend (0.1.0)
@@ -9,6 +15,12 @@ PATH
   specs:
     frontend (0.1.0)
       rails (>= 7.0.2.3)
+
+PATH
+  remote: components/jsj
+  specs:
+    jsj (0.1.0)
+      rails (>= 7.0.3)
 
 GEM
   remote: https://rubygems.org/
@@ -190,6 +202,10 @@ GEM
     nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    pdf-core (0.9.0)
+    prawn (2.4.0)
+      pdf-core (~> 0.9.0)
+      ttfunk (~> 1.7)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -257,6 +273,7 @@ GEM
     thor (1.2.1)
     thread_safe (0.3.6)
     timeout (0.2.0)
+    ttfunk (1.7.0)
     turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -286,6 +303,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  admin!
   awesome_print
   backend!
   better_errors
@@ -302,7 +320,9 @@ DEPENDENCIES
   frontend!
   jbuilder
   jsbundling-rails
+  jsj!
   listen
+  prawn
   pry
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.3)
