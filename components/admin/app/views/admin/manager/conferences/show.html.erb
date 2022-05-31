@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @manager_conference %>
+
+<div>
+  <%= link_to "Edit this conference", edit_manager_conference_path(@manager_conference) %> |
+  <%= link_to "Back to conferences", manager_conferences_path %>
+
+  <%= button_to "Destroy this conference", @manager_conference, method: :delete %>
+</div>

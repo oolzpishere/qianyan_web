@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Certification pdfs</h1>
+
+<div id="certification_pdfs">
+  <% @certification_pdfs.each do |certification_pdf| %>
+    <%= render certification_pdf %>
+    <p>
+      <%= link_to "Show this certification pdf", certification_pdf %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New certification pdf", new_certification_pdf_path %>

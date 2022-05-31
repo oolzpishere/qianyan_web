@@ -1,0 +1,17 @@
+<%= form_with(model: manager_conference) do |form| %>
+  <% if manager_conference.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(manager_conference.errors.count, "error") %> prohibited this manager_conference from being saved:</h2>
+
+      <ul>
+        <% manager_conference.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
