@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%# stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <% if notice %>
+    <p class="notice alert alert-success fade show" role="alert"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <%= render "layouts/admin/manager/header" %>
+
+
+    <%= yield %>
+  </div>
+
+</body>
+</html>

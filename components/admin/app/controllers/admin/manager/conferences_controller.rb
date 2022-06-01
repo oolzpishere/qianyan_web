@@ -4,7 +4,7 @@ module Admin
 
     # GET /manager/conferences
     def index
-      @manager_conferences = Manager::Conference.all
+      @conferences = Backend::Conference.all
     end
 
     # GET /manager/conferences/1

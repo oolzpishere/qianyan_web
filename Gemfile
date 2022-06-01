@@ -86,6 +86,7 @@ group :test do
   gem "webdrivers"
 end
 
+gem 'account', git: "https://github.com/oolzpishere/account"
 gem 'admin', path: 'components/admin'
 gem 'backend', path: 'components/backend'
 gem 'frontend', path: 'components/frontend'
@@ -98,3 +99,6 @@ gem 'virtus'
 # gem "tailwindcss-rails", "~> 2.0"
 
 gem 'prawn'
+
+gem 'omniauth-open-wechat-oauth2', git: 'https://github.com/oolzpishere/omniauth-open-wechat-oauth2'
+gem "omniauth-wechat-oauth2", git: 'git@github.com:oolzpishere/omniauth-wechat-oauth2.git'
