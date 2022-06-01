@@ -14,13 +14,14 @@ module Frontend
         format.pdf do
           # image = MiniMagick::Image.open("certs/nation.jpg")
           assets_path = Rails.root.join('app', 'assets')
+          public_path = Rails.root.join('public')
           backgroud_image = assets_path.join('images', 'certs', 'nation.jpg')
           pdf = Prawn::Document.new(page_size: [800, 594], 
                                     page_layout: :portrait,
                                     background:  backgroud_image)
           # pdf.image(app.asset_path("ccerts/nation.jpgerts/nation.jpg"), width: pdf.bounds.width, height: pdf.bounds.height)
 
-          pdf.font("#{assets_path}/fonts/Songti.ttc", size: 16) do
+          pdf.font("#{public_path}/fonts/Songti.ttc", size: 16) do
             pdf.stroke_axis
             pdf.move_down 150 
 
