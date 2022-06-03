@@ -1,8 +1,8 @@
-module Uploader
+module Jsj
   module FetchSignUpForm
 
     def self.all_forms
-      Uploader::FormInfos.all_forms.map {|form_hash| form_hash.merge({form_type: "jsj_json", all_use_data_type: "jsj_json"})}
+      Jsj::FormInfos.all_forms.map {|form_hash| form_hash.merge({form_type: "jsj_json", all_use_data_type: "jsj_json"})}
     end
 
     def self.invoke_all
@@ -52,7 +52,7 @@ module Uploader
     end
 
     def self.pre_setting_params(form_hash)
-      conf_id = find_conf( form_hash[:conf_eng_name] ).id
+      conf_id = find_conf( form_hash[:year], form_hash[:season], form_hash[:subject_eng_name] ).id
       {
        name: form_hash[:name],
        conference_id: conf_id,
@@ -70,8 +70,9 @@ module Uploader
       }
     end
 
-    def self.find_conf(conf_eng_name)
-      SignUp::Conference.find_by(eng_name: conf_eng_name)
+    def self.find_conf(year, season, subject_eng_name)
+      # Backend::Conference.find_by(eng_name: conf_eng_name)
+      Backend::Conference.find_by(year: year, season: season, subject_eng_name: subject_eng_name)
     end
 
     def self.find_pre_setting_form(form_identify)
@@ -79,7 +80,7 @@ module Uploader
     end
 
     def self.sync_to_db(params)
-      new_form = SignUp::SignUpForm.new(params)
+      new_form = Backend::JsjForm.new(params)
 
       if !find_in_db( params[:form_identify] )
         new_form.save
@@ -93,7 +94,7 @@ module Uploader
     end
 
     def self.find_in_db(form_identify)
-      SignUp::SignUpForm.find_by(form_identify: form_identify)
+      Backend::JsjForm.find_by(form_identify: form_identify)
     end
 
     def self.same_with_org_form?(new_form, org_form)

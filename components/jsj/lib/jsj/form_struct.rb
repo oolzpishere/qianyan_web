@@ -1,8 +1,8 @@
-module Uploader
+module Jsj
   class FormStruct
     attr_reader :sign_up_form, :name, :description, :fields
     def initialize(sign_up_form)
-      @sign_up_form = (sign_up_form.is_a?(String) ? SignUp::SignUpForm.find_by(form_identify: sign_up_form) : sign_up_form)
+      @sign_up_form = (sign_up_form.is_a?(String) ? Backend::JsjForm.find_by(form_identify: sign_up_form) : sign_up_form)
 
       @name = @sign_up_form.name
       @description = @sign_up_form.description

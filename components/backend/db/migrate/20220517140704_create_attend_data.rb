@@ -8,9 +8,22 @@ class CreateAttendData < ActiveRecord::Migration[7.0]
       t.string :phone
       t.string :email
       t.string :school
+      t.string :way
+      t.string :occupation
+      t.string :openid
+      t.string :unionid
 
       t.string :group
+      # for grouping 
       t.integer :timestamp
+
+      t.integer :jsj_id
+      t.json :entry
+      t.boolean :deleted
+      t.string :trade_no
+      t.string :bank_transfer_confirm
+      t.string :jsj_created_at
+      t.string :jsj_updated_at
 
       t.timestamps
     end
