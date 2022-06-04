@@ -1,6 +1,10 @@
 Frontend::Engine.routes.draw do
-  resources :certification_pdfs
+  root to: 'pages#index'
+
   resources :pages
 
-  root to: 'pages#index'
+  get 'certifications/search', to: 'certifications#search'
+  post 'certifications/search_datum', to: 'certifications#search_datum'
+  resources :certifications
+
 end

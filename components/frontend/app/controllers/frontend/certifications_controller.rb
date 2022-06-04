@@ -1,10 +1,23 @@
 module Frontend
-  class CertificationPdfsController < ApplicationController
-    # before_action :set_certification_pdf, only: %i[ show edit update destroy ]
+  class CertificationsController < ApplicationController
+    # before_action :set_certification, only: %i[ show edit update destroy ]
     include ActionView::Helpers::AssetUrlHelper
     # GET /certification_pdfs
     def index
       @certification_pdfs = CertificationPdf.all
+    end
+
+    def search
+
+    end
+
+    def search_datum
+      puts "params!! #{params}"
+      phone = params[:phone]
+      name = params[:name]
+      puts Backend::AttendDatum.where(phone: phone).first.attributes
+      # todo: if have result, redirect to print pdf page
+      # else, tell user to search again.
     end
 
     # GET /certification_pdfs/1
@@ -77,9 +90,9 @@ module Frontend
 
     private
       # Use callbacks to share common setup or constraints between actions.
-      def set_certification_pdf
-        @certification_pdf = CertificationPdf.find(params[:id])
-      end
+      # def set_certification
+      #   @certification_pdf = CertificationPdf.find(params[:id])
+      # end
 
       # Only allow a list of trusted parameters through.
       def certification_pdf_params
