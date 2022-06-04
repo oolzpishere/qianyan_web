@@ -1,14 +1,33 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Conferences</h1>
+<span class="text-4xl font-medium">Conferences</span>
 
-<div id="manager_conferences">
-  <% @conferences.each do |conference| %>
-    <%= render conference %>
-    <p>
-      <%= link_to "Show this conference", conference %>
-    </p>
-  <% end %>
-</div>
+<table class="table-striped-gray">
+  <% @reject_array = [] %>
 
-<%# link_to "New conference", new_manager_conference_path %>
+  <thead class="">
+    <tr class="">
+      <% Backend::Conference.column_names.each do |name| %>
+        <th class="px-3">
+          <%= name %>
+        </th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody class="table-row-group" style="font-size: 14px;">
+    <% @conferences.each do |conference| %>
+      <tr class="">
+        <% conference.attributes.each do |k, v| %>
+          <td class="">
+            <%= v %>
+          </td>
+        <% end %>
+        <td class="">
+          <%= link_to '查看', manager_conference_path(conference), class: "btn btn-xs btn-primary" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p></p>

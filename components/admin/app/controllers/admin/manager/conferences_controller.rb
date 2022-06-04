@@ -49,7 +49,7 @@ module Admin
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_manager_conference
-        @manager_conference = Manager::Conference.find(params[:id])
+        @conference = Backend::Conference.find(params[:id])
       end
 
       # Only allow a list of trusted parameters through.

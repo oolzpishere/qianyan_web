@@ -1,10 +1,28 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @manager_conference %>
+<div class="container mx-auto">
+  <h3> <%= @conference.name %> </h3>
 
-<div>
-  <%= link_to "Edit this conference", edit_manager_conference_path(@manager_conference) %> |
-  <%= link_to "Back to conferences", manager_conferences_path %>
+  <table class="table-striped-gray">
+    <!-- <thead>
+      <tr>
+        <th colspan="3"></th>
+      </tr>
+    </thead> -->
 
-  <%= button_to "Destroy this conference", @manager_conference, method: :delete %>
+    <tbody>
+      <% @conference.attributes.each do |k, v| %>
+        <tr>
+          <td><%= k %></td>
+          <td><%= v %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <%# link_to 'Edit', edit_manager_conference_path(@manager_conference) %>
+  <%= link_to '返回', manager_conferences_path, class: "btn btn-sm btn-primary "%>
+
+
+  <p></p>
 </div>
