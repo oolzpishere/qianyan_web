@@ -44,7 +44,7 @@ module Jsj
     end
 
     def self.backup_db
-      Jsj::Backup.backup_db
+      # Jsj::Backup.backup_db
     end
 
     private

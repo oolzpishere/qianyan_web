@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_030648) do
 
   create_table "attend_data", force: :cascade do |t|
     t.integer "conference_id"
-    t.integer "form_id"
+    t.integer "jsj_form_id"
     t.string "name"
     t.string "phone"
     t.string "email"

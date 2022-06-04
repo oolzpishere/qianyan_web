@@ -24,6 +24,13 @@ require "jsj/form_struct/field"
 require "jsj/form_struct/custom_field"
 require "jsj/form_struct/base_custom_field"
 
+require "jsj/entry_fields"
+require "jsj/entry_fields/system_field"
+require "jsj/entry_fields/custom_field"
+require "jsj/entry_fields/custom_field/base"
+require "jsj/entry_fields/custom_field/goods_field"
+require "jsj/entry_fields/custom_field/address_field"
+
 require "jsj/pull_data"
 require "jsj/pull_data/pull_form"
 require "jsj/pull_data/handle_results"
@@ -35,6 +42,8 @@ require "jsj/pull_data/data_request"
 require 'jsj/fetch_sign_up_form'
 
 require "jsj/form_infos"
+
+require "jsj/jsj_fields"
 
 module Jsj
   # Your code goes here...

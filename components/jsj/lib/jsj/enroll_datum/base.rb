@@ -29,7 +29,7 @@ module Jsj
       def to_params
         {
           conference_id: conference.id,
-          sign_up_form_id: sign_up_form.id,
+          jsj_form_id: sign_up_form.id,
 
           name: name,
           phone: phone,

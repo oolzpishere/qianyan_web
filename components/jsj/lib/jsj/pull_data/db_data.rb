@@ -39,7 +39,7 @@ module Jsj
         start_id = ( (loop_count == 0) ? 1 : source_enroll_data.first.jsj_id )
         end_id = source_enroll_data.last.jsj_id
 
-        Backend::SignUpDatum.where( sign_up_form_id: sign_up_form.id ).and( Backend::SignUpDatum.where( jsj_id: (start_id..end_id).to_a ) )
+        Backend::AttendDatum.where( jsj_form_id: sign_up_form.id ).and( Backend::AttendDatum.where( jsj_id: (start_id..end_id).to_a ) )
       end
 
 

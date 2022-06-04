@@ -34,7 +34,7 @@ module Jsj
       def create_source_data(create_source_jsj_ids)
         restore_deleted_db_data
 
-        _created_sign_up_data = Backend::SignUpDatum.create(
+        _created_sign_up_data = Backend::AttendDatum.create(
           source_enroll_data.need_to_create_data.map {|d| d.to_params}
         )
       end
