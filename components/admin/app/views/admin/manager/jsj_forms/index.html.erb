@@ -1,0 +1,29 @@
+
+<span class="text-4xl font-medium">Jsj Forms</span>
+
+<table class="table-striped-gray">
+  <thead class="">
+    <tr>
+      <% Backend::JsjForm.column_names.each do |name| %>
+        <th class="px-3"><%= name %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody style="font-size: 14px;">
+    <% @jsj_forms.each do |jsj_form| %>
+      <tr>
+        <% _attrs = jsj_form.attributes %>
+        <% _attrs["conference_id"] = jsj_form.conference.name %>
+
+        <% _attrs.each do |k, v| %>
+          <td><%= truncate( v.to_s, length: 70 ) %></td>
+        <% end %>
+
+        <td><%= link_to '查看', manager_jsj_form_path(jsj_form), class: "btn btn-xs btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p></p>

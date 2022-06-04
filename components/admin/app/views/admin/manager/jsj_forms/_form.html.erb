@@ -1,0 +1,17 @@
+<%= form_with(model: manager_jsj_form) do |form| %>
+  <% if manager_jsj_form.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(manager_jsj_form.errors.count, "error") %> prohibited this manager_jsj_form from being saved:</h2>
+
+      <ul>
+        <% manager_jsj_form.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
