@@ -40,6 +40,9 @@ module Jsj
           # openid: openid,
           # unionid: ,
 
+          payed: payed,
+          allow_to_print: allow_to_print?,
+
           # group: group,
           # timestamp: timestamp,
 
@@ -127,6 +130,18 @@ module Jsj
 
       def do_not_need_to_send?
         send_status && send_status.match(/\A不发送/)
+      end
+
+      def allow_to_print?
+        if do_not_need_to_send?
+          false
+        elsif payed?
+          true
+        elsif presend?
+          true
+        else
+          false
+        end
       end
 
       def send_status

@@ -15,9 +15,31 @@ module Frontend
       puts "params!! #{params}"
       phone = params[:phone]
       name = params[:name]
-      puts Backend::AttendDatum.where(phone: phone).first.attributes
-      # todo: if have result, redirect to print pdf page
-      # else, tell user to search again.
+      attend_data = Backend::AttendDatum.where(phone: phone)
+      if !attend_data.blank?
+        puts attend_data.inspect
+      end
+      if attend_data.blank?
+        redirect_to frontend.certifications_search_path, notice: "未找到您的报名信息，请重新查询"
+      else
+        # todo: if have result, redirect to print pdf page
+        attend_data_ids = attend_data.map(&:id).to_json
+        _path = certifications_results_path + "?attend_data_ids=#{attend_data_ids}"
+        redirect_to _path
+      end
+      # or show search result below.
+      # click to print pdf, or download pdf.
+    end
+
+    def results 
+      attend_data_ids = params[:attend_data_ids] 
+      if attend_data_ids.blank?
+        redirect_to frontend.certifications_search_path
+        return
+      end
+      attend_data_ids = JSON.parse(attend_data_ids)
+      @attend_data = Backend::AttendDatum.where(id: attend_data_ids)
+        
     end
 
     # GET /certification_pdfs/1
@@ -44,7 +66,6 @@ module Frontend
             pdf.draw_text "小学数学", :at => [100,325]
             pdf.draw_text "小学数学", :at => [550,325]
           end
-
 
           # send_data pdf.render_file,  filename: pdf.name, type: "application/pdf"
           # pdf.render_file 'assignment.pdf'

@@ -1,13 +1,20 @@
 
 <h1>Certifications search</h1>
 
-<%= form_with url: frontend.certifications_search_datum_path do |form| %>
-  phone:
-  <%= form.text_field :phone %>
-  name:
-  <%= form.text_field :name %>
+<div data-controller="cert">
 
-  <%= form.submit %>
-<% end %>
+  <%= form_with url: frontend.certifications_search_datum_path, data: {turbo: false} do |form| %>
+    phone:
+    <%= form.text_field :phone %>
+    name:
+    <%= form.text_field :name %>
 
+    <%# form.submit data: {action: "cert#submit"} %>
+    <%= form.submit %>
+  <% end %>
+
+  <% if notice %>
+    <p class="notice alert alert-success fade show" role="alert"><%= notice %></p>
+  <% end %>
+</div>
 <%# link_to "New certification pdf", new_certification_pdf_path %>

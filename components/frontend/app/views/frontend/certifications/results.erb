@@ -1,0 +1,12 @@
+
+<h1>Certifications results</h1>
+
+
+<% @attend_data.each do |attend_datum| %>
+  id: <%= attend_datum.id %>
+  name: <%= attend_datum.name %>
+  phone: <%= attend_datum.phone %>
+  school: <%= attend_datum.school %>
+<% end %>
+
+<%# link_to "New certification pdf", new_certification_pdf_path %>

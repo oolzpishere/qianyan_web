@@ -5,6 +5,7 @@ Frontend::Engine.routes.draw do
 
   get 'certifications/search', to: 'certifications#search'
   post 'certifications/search_datum', to: 'certifications#search_datum'
+  get 'certifications/results', to: 'certifications#results'
   resources :certifications
 
 end

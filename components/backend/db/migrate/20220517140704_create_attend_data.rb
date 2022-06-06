@@ -13,6 +13,9 @@ class CreateAttendData < ActiveRecord::Migration[7.0]
       t.string :openid
       t.string :unionid
 
+      t.boolean :payed
+      t.boolean :allow_to_print
+
       t.string :group
       # for grouping 
       t.integer :timestamp
