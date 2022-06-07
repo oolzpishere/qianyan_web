@@ -1,0 +1,31 @@
+<header class="xl:container mx-auto relative py-2 rounded-bottom " >
+  <span class='absolute -z-10' style='top: -100px; left: -280px;'> <%= image_tag( 'header/1.png' ) %> </span>
+  <span class='absolute -z-10' style='top: -250px; right: 80px;'> <%= image_tag( 'header/2.png' ) %> </span>
+  <span class='absolute -z-10' style='top: 290px; right: -340px;'> <%= image_tag( 'header/3.png' ) %> </span>
+
+  <div class="w-4/5 mx-auto relative flex mt-10 ">
+    <span class='ml-5'> <%= image_tag( 'header/logo.png' ) %> </span>
+    <span class='ml-5 mt-14'> <%= image_tag( 'header/text.png' ) %> </span>
+    <span class='ml-10'> <%= image_tag( 'header/official-qrc.png' ) %> </span>
+    <span class='ml-5'> <%= image_tag( 'header/app-qrc.png' ) %> </span>
+    <span class='ml-5'> <%= image_tag( 'header/phone.png' ) %> </span>
+  </div>
+
+  <div class="w-4/5 mx-auto relative flex justify-around content-center mt-5 py-3 rounded-full shadow-lg"  style="background-color: #FF4A00;">
+    <ul class="flex justify-center content-center text-white">
+      <li class="nav-item px-3">
+        <%= link_to "首页", frontend.root_path, class: "" %>
+      </li>
+      <li class="nav-item px-3">
+        <%= link_to "前沿课堂", '#', class: "" %>
+      </li>
+      <li class="nav-item px-3">
+        <%= link_to "学时证明", frontend.certifications_search_path, class: "" %>
+      </li>
+
+    </ul>
+
+  </div>
+
+
+</header>

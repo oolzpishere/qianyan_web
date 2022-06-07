@@ -1,16 +1,21 @@
 
-<h1>Certifications search</h1>
 
-<div data-controller="cert">
+
+<div data-controller="cert" class="w-8/12 mx-auto rounded-2xl shadow-2xl bg-white p-5 mt-8">
 
   <%= form_with url: frontend.certifications_search_datum_path, data: {turbo: false} do |form| %>
-    phone:
-    <%= form.text_field :phone %>
-    name:
-    <%= form.text_field :name %>
+    <div class="block">
+      phone:
+      <%= form.text_field :phone, class: "rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring focus:ring-orange-300 focus:ring-opacity-50" %>
+    </div>
+    
+    <div class="block">
+      name:
+      <%= form.text_field :name, class: "rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring focus:ring-orange-300 focus:ring-opacity-50" %>
+    </div>
 
     <%# form.submit data: {action: "cert#submit"} %>
-    <%= form.submit %>
+    <%= form.submit class: 'btn p-2 btn-cyan' %>
   <% end %>
 
   <% if notice %>
