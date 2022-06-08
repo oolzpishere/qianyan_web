@@ -22,8 +22,12 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: qianyan_web_production
 
 staging:
   <<: *default
-  database: db/staging.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: qianyan_web_staging
