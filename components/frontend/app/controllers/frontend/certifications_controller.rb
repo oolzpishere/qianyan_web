@@ -38,15 +38,16 @@ module Frontend
         return
       end
       attend_data_ids = JSON.parse(attend_data_ids)
-      @attend_data = Backend::AttendDatum.where(id: attend_data_ids)
+      @attend_data = Backend::AttendDatum.where(id: attend_data_ids, allow_to_print: true)
         
     end
 
     def download
       respond_to do |format|
         format.pdf do
-          pdf = gen_pdf( params[:id] )
-          send_data pdf.render,  filename: 'test.pdf', type: 'application/pdf'
+          attend_datum = Backend::AttendDatum.find(params[:id])
+          pdf = gen_pdf( attend_datum )
+          send_data pdf.render,  filename: "#{attend_datum.conference.full_name}-#{attend_datum.name}.pdf", type: 'application/pdf'
         end
       end
     end
@@ -55,8 +56,9 @@ module Frontend
     def show
       respond_to do |format|
         format.pdf do
-          pdf = gen_pdf( params[:id] )
-          send_data pdf.render,  filename: 'test.pdf', type: 'application/pdf', disposition: 'inline'
+          attend_datum = Backend::AttendDatum.find(params[:id])
+          pdf = gen_pdf( attend_datum )
+          send_data pdf.render,  filename: "#{attend_datum.conference.full_name}-#{attend_datum.name}.pdf", type: 'application/pdf', disposition: 'inline'
         end
       end
     end
@@ -107,8 +109,7 @@ module Frontend
         params.fetch(:certification_pdf, {})
       end
 
-      def gen_pdf(attend_datum_id)
-        attend_datum = Backend::AttendDatum.find(attend_datum_id)
+      def gen_pdf(attend_datum)
         cert_parser = Frontend::CertParser.new(attend_datum)
         if cert_parser.cert_bg_type == "country"
           gen_country_pdf(attend_datum, cert_parser)
