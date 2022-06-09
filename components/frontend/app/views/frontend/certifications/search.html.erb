@@ -1,25 +1,30 @@
 
 
 
-<div data-controller="cert" class="w-8/12 mx-auto rounded-2xl shadow-2xl bg-white p-5 mt-8">
+<div data-controller="cert" class="w-6/12 mx-auto rounded-2xl shadow-2xl bg-white p-5 mt-8">
 
   <%= form_with url: frontend.certifications_search_datum_path, data: {turbo: false} do |form| %>
     <div class="block">
-      phone:
+      <div class="w-full">
+        电话:
+      </div>
       <%= form.text_field :phone, class: "rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring focus:ring-orange-300 focus:ring-opacity-50" %>
     </div>
     
-    <div class="block">
-      name:
+    <div class="block mt-5">
+      <div class="w-full" >
+        姓名:
+      </div>
       <%= form.text_field :name, class: "rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring focus:ring-orange-300 focus:ring-opacity-50" %>
     </div>
 
     <%# form.submit data: {action: "cert#submit"} %>
-    <%= form.submit class: 'btn p-2 btn-cyan' %>
+    <%= form.submit class: 'btn p-2 btn-primary mt-5' %>
   <% end %>
 
   <% if notice %>
     <p class="notice alert alert-success fade show" role="alert"><%= notice %></p>
   <% end %>
 </div>
-<%# link_to "New certification pdf", new_certification_pdf_path %>
+
+<div class="w-full my-8"></div>

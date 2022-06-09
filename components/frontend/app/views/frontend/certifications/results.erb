@@ -1,18 +1,19 @@
 
-<h1>Certifications results</h1>
+<!-- <h1>Certifications results</h1> -->
 
 <div class="w-8/12 mx-auto rounded-2xl shadow-2xl bg-white p-5 mt-8 mb-8">
 
 
 
-  <table class="table-striped-gray">
+  <table class="table-striped-orange mx-auto">
     <thead class="">
       <tr>
-        <th class="px-3">参与会议</th>
-        <th class="px-3">jsj_id</th>
-        <th class="px-3">姓名</th>
-        <th class="px-3">电话</th>
-        <th class="px-3">学校</th>
+        <th class="p-3">参与会议</th>
+        <th class="p-3">姓名</th>
+        <th class="p-3">电话</th>
+        <th class="p-3">学校</th>
+        <th class="p-3">下载证书</th>
+        <th class="p-3">打印证书</th>
       </tr>
     </thead>
 
@@ -20,18 +21,17 @@
       <% @attend_data.each do |attend_datum| %>
         <% conference = attend_datum.jsj_form && attend_datum.jsj_form.conference %>
         <tr>
-          <td> <%= conference.full_name %> </td>
-          <td> <%= attend_datum.jsj_id %> </td>
-          <td> <%= attend_datum.name %> </td>
-          <td> <%= attend_datum.phone %> </td>
-          <td> <%= attend_datum.school %> </td>
+          <td class="p-3"> <%= conference.full_name %> </td>
+          <td class="p-3"> <%= attend_datum.name %> </td>
+          <td class="p-3"> <%= attend_datum.phone %> </td>
+          <td class="p-3"> <%= attend_datum.school %> </td>
 
-          <td><%= link_to '下载证书', "/certifications/download/#{attend_datum.id}.pdf", class: "btn btn-xs btn-primary" %></td>
-          <td><%= link_to '打印证书', "/certifications/#{attend_datum.id}.pdf", target: "_blank", class: "btn btn-xs btn-primary" %></td>
+          <td class="p-3"><%= link_to '下载证书', "/certifications/download/#{attend_datum.id}.pdf", class: "btn btn-xs btn-primary" %></td>
+          <td class="p-3"><%= link_to '打印证书', "/certifications/#{attend_datum.id}.pdf", target: "_blank", class: "btn btn-xs btn-primary" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
+  <%= link_to "返回查询", certifications_search_path, class: "btn btn-xs btn-gray mt-5 ml-20" %>
 </div>
-<%# link_to "New certification pdf", new_certification_pdf_path %>

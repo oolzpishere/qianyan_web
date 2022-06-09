@@ -38,4 +38,12 @@
   .btn-cyan-outline.active {
     @apply text-white bg-cyan-600;
   }
+
+  .btn-orange {
+    @apply btn text-white bg-orange-600 hover:bg-orange-700;
+  }
+
+  .btn-orange.active {
+    @apply bg-orange-800;
+  }
 }
