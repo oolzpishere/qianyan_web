@@ -39,11 +39,11 @@ module Jsj
           {name: "小学语文", year: 2022, season: 'spring', subject_eng_name: "primary_chinese", form_identify: "FQ8Zvn"},
           {name: "小学英语", year: 2022, season: 'spring', subject_eng_name: "primary_english", form_identify: "XAFecT"},
         ],
-        online_only: [
-          {name: "小学语文(全国)", year: 2022, season: 'spring', subject_eng_name: "primary_chinese", form_identify: "gEWW4H"},
-          {name: "小学英语(全国)", year: 2022, season: 'spring', subject_eng_name: "primary_english", form_identify: "OhZPxW"},
-          {name: "小学数学(全国)", year: 2022, season: 'spring', subject_eng_name: "primary_math", form_identify: "HWVDO9"},
-        ],
+        # online_only: [
+        #   {name: "小学语文(全国)", year: 2022, season: 'spring', subject_eng_name: "primary_chinese", form_identify: "gEWW4H"},
+        #   {name: "小学英语(全国)", year: 2022, season: 'spring', subject_eng_name: "primary_english", form_identify: "OhZPxW"},
+        #   {name: "小学数学(全国)", year: 2022, season: 'spring', subject_eng_name: "primary_math", form_identify: "HWVDO9"},
+        # ],
         email: [
           # {name: "初中数学广西邮件", year: 2022, season: 'spring', subject_eng_name: "junior_high_math", form_identify: "i13lAp"},
           # {name: "初中语文广西邮件", year: 2022, season: 'spring', subject_eng_name: "junior_high_chinese", form_identify: "o1Pvxa"},
@@ -59,7 +59,7 @@ module Jsj
           {name: "小学数学全国邮件", year: 2022, season: 'spring', subject_eng_name: "primary_math", form_identify: "uW39GD"},
           {name: "小学语文全国邮件", year: 2022, season: 'spring', subject_eng_name: "primary_chinese", form_identify: "tb1epy"},
           {name: "小学英语全国邮件", year: 2022, season: 'spring', subject_eng_name: "primary_english", form_identify: "AqVfZf"},
-          {name: "小学英语（分会场）全国邮件", year: 2022, season: 'spring', subject_eng_name: "primary_english", form_identify: "dcfLNX"},
+          # {name: "小学英语（分会场）全国邮件", year: 2022, season: 'spring', subject_eng_name: "primary_english", form_identify: "dcfLNX"},
         ],
         dong_shi: [
           # {name: "初中数学东师", year: 2022, season: 'spring', subject_eng_name: "junior_high_math", form_identify: "wbFIaz"},

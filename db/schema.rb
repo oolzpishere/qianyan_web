@@ -35,6 +35,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_030648) do
     t.string "occupation"
     t.string "openid"
     t.string "unionid"
+    t.boolean "payed"
+    t.boolean "allow_to_print"
     t.string "group"
     t.integer "timestamp"
     t.integer "jsj_id"

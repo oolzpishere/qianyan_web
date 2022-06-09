@@ -1,0 +1,41 @@
+<div class="xl:container mx-auto" >
+  <h1>Manager Attend Data</h1>
+
+  <div class="h3">
+    SmsType:
+  </div>
+
+  <div class="h3">
+    Select sign_up_data:
+  </div>
+
+  <div class="border mt-5">
+
+    <div class="grid grid-cols-3 w-4/5">
+      <% @conferences.each do |conference| %>
+        <div class="flex columns-3 justify-center">
+          <div class="card border rounded my-3 ">
+            <h5 class="bg-gray-300 px-3 py-2"><%= conference.name %></h5>
+            <div class="">
+              <!-- <h5 class="card-title">Special title treatment</h5> -->
+              <ul class="">
+                <% conference.jsj_forms.each do |jsj_form| %>
+                  <% id = jsj_form.id %>
+                  <% name = jsj_form.name %>
+                  <% identify = jsj_form.form_identify %>
+                  <li class="border-y p-3">
+                    <%= link_to "#{name}: #{identify}", "#{manager_attend_data_path}?jsj_forms=#{id}", class: "btn btn-sm btn-primary"  %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="h-100 mt-4"></div>
+
+</div>

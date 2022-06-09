@@ -40,7 +40,7 @@ module Jsj
           # openid: openid,
           # unionid: ,
 
-          payed: payed,
+          payed: payed?,
           allow_to_print: allow_to_print?,
 
           # group: group,

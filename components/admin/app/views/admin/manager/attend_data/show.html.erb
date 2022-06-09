@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @manager_attend_datum %>
+
+<div>
+  <%= link_to "Edit this attend datum", edit_manager_attend_datum_path(@manager_attend_datum) %> |
+  <%= link_to "Back to attend data", manager_attend_data_path %>
+
+  <%= button_to "Destroy this attend datum", @manager_attend_datum, method: :delete %>
+</div>
