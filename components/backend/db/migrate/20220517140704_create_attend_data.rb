@@ -8,6 +8,8 @@ class CreateAttendData < ActiveRecord::Migration[7.0]
       t.string :phone
       t.string :email
       t.string :school
+      t.string :province
+      t.string :location
       t.string :way
       t.string :occupation
       t.string :openid
@@ -15,6 +17,8 @@ class CreateAttendData < ActiveRecord::Migration[7.0]
 
       t.boolean :payed
       t.boolean :allow_to_print
+      t.string :certification_number
+      t.string :cert_bg_type
 
       t.string :group
       # for grouping 

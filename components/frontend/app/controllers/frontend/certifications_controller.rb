@@ -15,7 +15,7 @@ module Frontend
       puts "params!! #{params}"
       phone = params[:phone]
       name = params[:name]
-      attend_data = Backend::AttendDatum.where(phone: phone)
+      attend_data = Backend::AttendDatum.where(phone: phone, allow_to_print: true)
       if !attend_data.blank?
         puts attend_data.inspect
       end
@@ -42,33 +42,20 @@ module Frontend
         
     end
 
+    def download
+      respond_to do |format|
+        format.pdf do
+          pdf = gen_pdf( params[:id] )
+          send_data pdf.render,  filename: 'test.pdf', type: 'application/pdf'
+        end
+      end
+    end
+
     # GET /certification_pdfs/1
     def show
       respond_to do |format|
-        format.html
         format.pdf do
-          # image = MiniMagick::Image.open("certs/nation.jpg")
-          assets_path = Rails.root.join('app', 'assets')
-          public_path = Rails.root.join('public')
-          backgroud_image = assets_path.join('images', 'certs', 'nation.jpg')
-          pdf = Prawn::Document.new(page_size: [800, 594], 
-                                    page_layout: :portrait,
-                                    background:  backgroud_image)
-          # pdf.image(app.asset_path("ccerts/nation.jpgerts/nation.jpg"), width: pdf.bounds.width, height: pdf.bounds.height)
-
-          pdf.font("#{public_path}/fonts/Songti.ttc", size: 16) do
-            pdf.stroke_axis
-            pdf.move_down 150 
-
-            pdf.draw_text("测试" + " " * 30 + "2022年5月30日" , at: [130,360])
-
-            pdf.move_down 25
-            pdf.draw_text "小学数学", :at => [100,325]
-            pdf.draw_text "小学数学", :at => [550,325]
-          end
-
-          # send_data pdf.render_file,  filename: pdf.name, type: "application/pdf"
-          # pdf.render_file 'assignment.pdf'
+          pdf = gen_pdf( params[:id] )
           send_data pdf.render,  filename: 'test.pdf', type: 'application/pdf', disposition: 'inline'
         end
       end
@@ -119,5 +106,34 @@ module Frontend
       def certification_pdf_params
         params.fetch(:certification_pdf, {})
       end
+
+      def gen_pdf(attend_datum_id)
+        attend_datum = Backend::AttendDatum.find(attend_datum_id)
+        cert_parser = Frontend::CertParser.new(attend_datum)
+
+        # image = MiniMagick::Image.open("certs/nation.jpg")
+        assets_path = Rails.root.join('app', 'assets')
+        public_path = Rails.root.join('public')
+        backgroud_image = assets_path.join('images', 'certs', "#{cert_parser.cert_bg_type}.jpg")
+        pdf = Prawn::Document.new(page_size: [1280, 950], 
+                                  page_layout: :portrait,
+                                  background:  backgroud_image)
+        # pdf.image(app.asset_path("ccerts/nation.jpgerts/nation.jpg"), width: pdf.bounds.width, height: pdf.bounds.height)
+
+        pdf.font("#{public_path}/fonts/FZ30.TTF", size: 26, style: :thin) do
+          pdf.stroke_axis
+
+          pdf.draw_text(attend_datum.name, at: [270,600])
+          pdf.draw_text(cert_parser.start_date_str, at: [620,595])
+
+          # pdf.move_down 25
+          pdf.draw_text cert_parser.conference.sms_conf_name, :at => [180,535]
+          pdf.draw_text cert_parser.conference.sms_conf_name, :at => [895,535]
+        end
+
+        pdf
+      end
+
+
   end
 end

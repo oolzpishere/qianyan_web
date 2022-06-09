@@ -35,6 +35,7 @@ module Jsj
           phone: phone,
           email: email,
           school: school,
+          location: province_inst.raw_province,
           way: way,
           occupation: occupation,
           # openid: openid,
