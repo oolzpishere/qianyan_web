@@ -60,7 +60,7 @@ set :assets_roles, [:web, :app]
 set :keep_assets, 2
 
 # Default value for linked_dirs is []
-append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", 'public/uploads', 'public/assets', 'storage'
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", 'public/uploads', 'public/assets', 'public/fonts', 'storage'
 
 append :linked_files, "config/master.key"
 namespace :deploy do
