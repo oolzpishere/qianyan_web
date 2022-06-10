@@ -22,8 +22,8 @@
     <%= form.submit "查询", class: 'btn p-2 btn-primary mt-5' %>
   <% end %>
 
-  <% if notice %>
-    <p class="notice alert alert-success fade show" role="alert"><%= notice %></p>
+  <% if session[:search_notifier] %>
+    <p class="notice alert alert-success fade show" role="alert"><%= session.delete(:search_notifier) %></p>
   <% end %>
 </div>
 
