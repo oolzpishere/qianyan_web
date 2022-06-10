@@ -33,7 +33,7 @@
   }
 
   .table-striped-orange thead tr th {
-    @apply bg-orange-600 text-white font-bold md:border border-orange-400 block md:table-cell;
+    @apply bg-orange-550 text-white font-bold md:border border-orange-400 block md:table-cell;
   }
 
   .table-striped-orange tbody {

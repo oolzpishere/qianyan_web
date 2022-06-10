@@ -159,8 +159,8 @@ module Frontend
           pdf.draw_text(cert_parser.start_date_str, at: [620,595])
 
           # pdf.move_down 25
-          pdf.draw_text cert_parser.conference.sms_conf_name, :at => [180,535]
-          pdf.draw_text cert_parser.conference.sms_conf_name, :at => [895,535]
+          pdf.draw_text cert_parser.conference.sms_conf_name, :at => [175,535]
+          pdf.draw_text cert_parser.conference.sms_conf_name, :at => [904,535]
         end
         pdf
       end
