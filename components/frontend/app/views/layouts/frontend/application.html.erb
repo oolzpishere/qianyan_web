@@ -10,7 +10,7 @@
 
 </head>
 <body>
-<div class="w-100 h-100 bg-gray-100 ">
+<div class="w-100 h-100  ">
   <div class="max-w-screen-xl  mx-auto ">
     <% if notice %>
     <p class="notice alert alert-success fade show" role="alert"><%= notice %></p>
@@ -19,8 +19,8 @@
     <p class="alert alert-danger"><%= alert %></p>
     <% end %>
 
-    <div class="bg">
-      <div class="container mx-auto">
+    <div class="bg bg-gray-100 overflow-hidden">
+      <div class="container mx-auto ">
         <% if controller.controller_name == "pages" && controller.action_name == "index" %>
           <%=render 'layouts/frontend/index_header' %>
         <% elsif controller.controller_name == "certifications"%>
