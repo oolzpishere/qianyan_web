@@ -133,6 +133,10 @@ module Jsj
         send_status && send_status.match(/\A提前发送/) 
       end
 
+      def manual_sent?
+        send_status && send_status.match(/\A已手动发送/) 
+      end
+
       def do_not_need_to_send?
         send_status && send_status.match(/\A不发送/)
       end
@@ -143,6 +147,8 @@ module Jsj
         elsif payed?
           true
         elsif presend?
+          true
+        elsif manual_sent?
           true
         else
           false

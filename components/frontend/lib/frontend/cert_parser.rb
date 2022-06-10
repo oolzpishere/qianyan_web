@@ -51,7 +51,7 @@ module Frontend
 
     def parsed_location
       return GUANGXI_CERT_BG_TYPE if attend_datum.location.blank?
-
+      
       if attend_datum.location.match("广西")
         GUANGXI_CERT_BG_TYPE 
       else
