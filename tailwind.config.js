@@ -7,7 +7,6 @@ module.exports = {
     './components/admin/app/views/**/*.html.erb',
     './components/frontend/app/views/**/*.html.erb',
     './components/frontend/app/views/frontend/**/*.html.erb',
-    './components/frontend/app/views/**/**/*.html.erb',
   ],
   theme: {
     extend: {
