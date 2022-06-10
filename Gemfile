@@ -85,6 +85,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  gem 'mocha'
+  gem 'webdrivers'
+  gem "webmock"
 end
 
 gem 'account', git: "https://github.com/oolzpishere/account"
