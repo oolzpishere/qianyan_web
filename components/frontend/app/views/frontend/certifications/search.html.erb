@@ -5,17 +5,17 @@
 
   <%= form_with url: frontend.certifications_search_datum_path, data: {turbo: false} do |form| %>
     <div class="block">
-      <div class="w-full">
-        电话:
-      </div>
-      <%= form.text_field :phone, class: "rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring focus:ring-orange-300 focus:ring-opacity-50" %>
-    </div>
-    
-    <div class="block mt-5">
       <div class="w-full" >
         姓名:
       </div>
       <%= form.text_field :name, class: "rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring focus:ring-orange-300 focus:ring-opacity-50" %>
+    </div>
+
+    <div class="block  mt-5">
+      <div class="w-full">
+        电话:
+      </div>
+      <%= form.text_field :phone, class: "rounded-md border-gray-300 shadow-sm focus:border-orange-400 focus:ring focus:ring-orange-300 focus:ring-opacity-50" %>
     </div>
 
     <%# form.submit data: {action: "cert#submit"} %>
@@ -27,4 +27,4 @@
   <% end %>
 </div>
 
-<div class="w-full my-8"></div>
+<div class="w-full my-6"></div> 
