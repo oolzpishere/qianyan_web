@@ -10,7 +10,7 @@ module Admin
     # GET /manager/attend_data
     def index
       jsj_form_id = params[:jsj_forms]
-      @attend_data = Backend::AttendDatum.where({ jsj_form_id: jsj_form_id }).order(:jsj_id)
+      @attend_data = Backend::AttendDatum.includes(:jsj_form).where({ jsj_form_id: jsj_form_id }).order(:jsj_id)
     end
 
     # GET /manager/attend_data/1
@@ -55,7 +55,7 @@ module Admin
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_manager_attend_datum
-        @manager_attend_datum = Manager::AttendDatum.find(params[:id])
+        @attend_datum = Backend::AttendDatum.find(params[:id])
       end
 
       # Only allow a list of trusted parameters through.
