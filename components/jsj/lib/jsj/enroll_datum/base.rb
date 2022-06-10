@@ -99,7 +99,11 @@ module Jsj
       end
 
       def school
-        @school ||= entry[get_field_identify_by_label("学校/单位名称")] || entry[get_field_identify_by_label("发票单位全称（开发票抬头）")]
+        @school ||= unless entry[get_field_identify_by_label("学校/单位名称")].blank? 
+          entry[get_field_identify_by_label("学校/单位名称")] 
+        else
+          entry[get_field_identify_by_label("发票单位全称（开发票抬头）")]
+        end
       end
 
       def sms_date_range
