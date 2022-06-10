@@ -23,7 +23,7 @@
   <% end %>
 
   <% if session[:search_notifier] %>
-    <p class="notice alert alert-success fade show" role="alert"><%= session.delete(:search_notifier) %></p>
+    <p class="relative p-3.5 bg-yellow-100 rounded mt-3 border border-yellow-300 text-sm"> <%= session.delete(:search_notifier) %></p>
   <% end %>
 </div>
 

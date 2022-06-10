@@ -19,7 +19,7 @@ module Frontend
         puts attend_data.inspect
       end
       if attend_data.blank?
-        session[:search_notifier] = "未找到您的报名信息，请重新查询"
+        session[:search_notifier] = "未找到您的报名信息，请重新查询； 如有疑问，请联系组委会工作人员。"
         redirect_to frontend.certifications_search_path 
       else
         # todo: if have result, redirect to print pdf page
