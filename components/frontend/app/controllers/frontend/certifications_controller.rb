@@ -130,7 +130,7 @@ module Frontend
         # pdf.image(app.asset_path("ccerts/nation.jpgerts/nation.jpg"), width: pdf.bounds.width, height: pdf.bounds.height)
 
         pdf.font("#{public_path}/fonts/FZ30.TTF", size: 26) do
-          pdf.stroke_axis
+          # pdf.stroke_axis
 
           pdf.draw_text(attend_datum.name, at: [270,600])
           pdf.draw_text(cert_parser.start_date_str, at: [620,595])
@@ -153,7 +153,7 @@ module Frontend
         # pdf.image(app.asset_path("ccerts/nation.jpgerts/nation.jpg"), width: pdf.bounds.width, height: pdf.bounds.height)
 
         pdf.font("#{public_path}/fonts/FZ30.TTF", size: 26) do
-          pdf.stroke_axis
+          # pdf.stroke_axis
 
           pdf.draw_text(attend_datum.name, at: [270,600])
           pdf.draw_text(cert_parser.start_date_str, at: [620,595])
