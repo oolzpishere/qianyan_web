@@ -11,6 +11,15 @@ module Frontend
     def show
     end
 
+    def corp
+    end
+
+    def pingbi
+    end
+
+    def conferences
+    end
+
     # GET /pages/new
     def new
       @page = Page.new

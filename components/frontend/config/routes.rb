@@ -1,6 +1,9 @@
 Frontend::Engine.routes.draw do
   root to: 'pages#index'
 
+  get 'corp', to: 'pages#corp'
+  get 'pingbi', to: 'pages#pingbi'
+  get 'conferences', to: 'pages#conferences'
   resources :pages
 
   get 'certifications/search', to: 'certifications#search'

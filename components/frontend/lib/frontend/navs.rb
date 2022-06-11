@@ -19,5 +19,9 @@ module Frontend
       end
     end
 
+    def current_nav
+      @current_nav ||= navs.find {|nav| nav[:active] }
+    end
+
   end
 end
