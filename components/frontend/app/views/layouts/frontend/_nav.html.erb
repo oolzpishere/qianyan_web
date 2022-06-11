@@ -1,0 +1,11 @@
+  
+<ul class="flex justify-center content-center ">
+  <% @navs.each do |nav| %>
+    <%= tag.li class: 'px-3' do %>
+      <% classes = nav[:active] ? 'text-[#FF4A00] bg-white' : 'text-white' %>
+      <% classes += ' py-1 px-3 rounded-full'  %>
+      <%= link_to nav[:name], nav[:path], class: classes %>
+    <% end %>
+  <% end %>
+
+</ul>
