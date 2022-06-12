@@ -12,8 +12,8 @@ module Frontend
     end
 
     def search_datum
-      phone = params[:phone]
-      name = params[:name]
+      phone = params[:phone].strip
+      name = params[:name].strip
       attend_data = Backend::AttendDatum.where(phone: phone, name: name, allow_to_print: true)
       if !attend_data.blank?
         puts attend_data.inspect
