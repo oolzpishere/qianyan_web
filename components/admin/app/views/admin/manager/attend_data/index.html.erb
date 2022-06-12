@@ -1,6 +1,6 @@
 
 <span class="text-2xl font-medium">
-  <%= @attend_data.first.jsj_form.name %>
+  <%= !@attend_data.blank? && @attend_data.first.jsj_form.name %>
 </span>
 
 <table class="table-striped-gray">
