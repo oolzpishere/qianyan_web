@@ -35,6 +35,12 @@ module Frontend
       "#{start_date.strftime("%-m月%d日")}"
     end
 
+    def date_range_str
+      start_date = conference.start_date
+      finish_date = conference.finish_date
+      "#{start_date.strftime("%-m月%d")} - #{finish_date.strftime("%d日")}" 
+    end
+
     def conference_name
       conference.name
     end

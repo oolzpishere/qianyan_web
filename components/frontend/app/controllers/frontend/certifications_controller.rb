@@ -133,7 +133,7 @@ module Frontend
           # pdf.stroke_axis
 
           pdf.draw_text(attend_datum.name, at: [270,600])
-          pdf.draw_text(cert_parser.start_date_str, at: [620,595])
+          pdf.draw_text(cert_parser.date_range_str, at: [595,595])
 
           # pdf.move_down 25
           pdf.draw_text cert_parser.conference.sms_conf_name, :at => [180,535]
@@ -159,7 +159,7 @@ module Frontend
           # pdf.stroke_axis
 
           pdf.draw_text(attend_datum.name, at: [270,600])
-          pdf.draw_text(cert_parser.start_date_str, at: [620,595])
+          pdf.draw_text(cert_parser.date_range_str, at: [595,595])
 
           # pdf.move_down 25
           pdf.draw_text cert_parser.conference.sms_conf_name, :at => [175,535]
