@@ -45,6 +45,10 @@ module Frontend
       conference.name
     end
 
+    def occupation
+      attend_datum.occupation
+    end
+
     private
 
     def get_attend_datum(_attend_datum)
