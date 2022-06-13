@@ -138,6 +138,9 @@ module Frontend
           # pdf.move_down 25
           pdf.draw_text cert_parser.conference.sms_conf_name, :at => [180,535]
           pdf.draw_text cert_parser.conference.sms_conf_name, :at => [895,535]
+
+          # pdf.move_down 800
+          # pdf.text '二〇 二二年五月', align: :center
         end
         pdf
       end
