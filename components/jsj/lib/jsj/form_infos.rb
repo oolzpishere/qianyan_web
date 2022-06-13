@@ -36,7 +36,7 @@ module Jsj
           # {name: "初中语文", year: 2022, season: 'spring', subject_eng_name: "junior_high_chinese", form_identify: "Itde1s"},
           # {name: "初中英语", year: 2022, season: 'spring', subject_eng_name: "junior_high_english", form_identify: "NaoJ6a"},
           {name: "小学数学", year: 2022, season: 'spring', subject_eng_name: "primary_math", form_identify: "Pf5W3d"},
-          # {name: "小学语文", year: 2022, season: 'spring', subject_eng_name: "primary_chinese", form_identify: "FQ8Zvn"},
+          {name: "小学语文", year: 2022, season: 'spring', subject_eng_name: "primary_chinese", form_identify: "FQ8Zvn"},
           {name: "小学英语", year: 2022, season: 'spring', subject_eng_name: "primary_english", form_identify: "XAFecT"},
         ],
         # online_only: [
