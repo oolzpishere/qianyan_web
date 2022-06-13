@@ -1,6 +1,14 @@
 
 <span class="text-2xl font-medium">
   <%= !@attend_data.blank? && @attend_data.first.jsj_form.name %>
+
+  <div class="btn btn-sm btn-primary">
+    总报名：<%= @attend_data.length %>
+  </div>
+
+  <div class="btn btn-sm btn-success rounded-pill">
+    可打印：<%= @attend_data && @attend_data.select{|d| d.allow_to_print}.length %>
+  </div> 
 </span>
 
 <table class="table-striped-gray">

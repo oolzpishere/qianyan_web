@@ -25,6 +25,10 @@
                   <% identify = jsj_form.form_identify %>
                   <li class="border-y p-3">
                     <%= link_to "#{name}: #{identify}", "#{manager_attend_data_path}?jsj_forms=#{id}", class: "btn btn-sm btn-primary"  %>
+                    <div class="btn btn-sm btn-success">
+                      <%= Backend::AttendDatum.where(jsj_form_id: id).length %> , 
+                      <%= Backend::AttendDatum.where(jsj_form_id: id, allow_to_print: true).length %>
+                    </div>
                   </li>
                 <% end %>
               </ul>
