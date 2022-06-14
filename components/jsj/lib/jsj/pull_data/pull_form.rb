@@ -14,8 +14,8 @@ module Jsj
         loop_curl
       end
 
-      def pull_latest
-        loop_curl(loop_times: 1)
+      def pull_from(next_num)
+        loop_curl(next_num: next_num)
       end
 
       def send_request(url)
@@ -50,9 +50,10 @@ module Jsj
       end
       # loop curl data
       # if next, curl again
-      def loop_curl( loop_times: nil)
-        next_num = nil
+      def loop_curl( next_num: nil)
         loop_count = 0
+        # influence db_data jsj_id start count, if not set to 1, will delete much data.
+        loop_count = 1 if next_num.present?
         begin
           url = gen_next_url(next_num)
           results = send_request(url)
@@ -61,7 +62,6 @@ module Jsj
           # handle_results(results)
           HandleResults.new(form_identify, results, loop_count: loop_count).invoke
           loop_count += 1
-          break if loop_times.present? && loop_count >= loop_times
         end while next_num
       end
 
