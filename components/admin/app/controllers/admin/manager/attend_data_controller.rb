@@ -17,6 +17,12 @@ module Admin
     def show
     end
 
+    def update_datum
+      return unless params[:id].to_s.match(/^\d+$/)
+      Jsj::PullData::PullDatum.new( params[:id] ).update_to_db
+      redirect_to request.referer
+    end
+
     # GET /manager/attend_data/new
     def new
       @manager_attend_datum = Manager::AttendDatum.new

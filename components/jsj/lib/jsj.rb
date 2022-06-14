@@ -37,7 +37,7 @@ require "jsj/pull_data/handle_results"
 require "jsj/pull_data/source_enroll_data"
 require "jsj/pull_data/db_data"
 require "jsj/pull_data/data_request"
-# require "jsj/pull_data/pull_datum"
+require "jsj/pull_data/pull_datum"
 
 require 'jsj/fetch_sign_up_form'
 
