@@ -43,6 +43,10 @@ module Jsj
       PullForm.new(form_identify).pull_form
     end
 
+    def self.pull_latest(form_identify)
+      PullForm.new(form_identify).pull_latest
+    end
+
     def self.backup_db
       # Jsj::Backup.backup_db
     end
