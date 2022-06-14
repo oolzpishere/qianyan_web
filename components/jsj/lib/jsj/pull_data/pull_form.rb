@@ -14,6 +14,10 @@ module Jsj
         loop_curl
       end
 
+      def pull_latest
+        loop_curl(loop_times: 1)
+      end
+
       def send_request(url)
         response = RestClient::Request.execute(
           {
@@ -46,7 +50,7 @@ module Jsj
       end
       # loop curl data
       # if next, curl again
-      def loop_curl
+      def loop_curl( loop_times: nil)
         next_num = nil
         loop_count = 0
         begin
@@ -57,6 +61,7 @@ module Jsj
           # handle_results(results)
           HandleResults.new(form_identify, results, loop_count: loop_count).invoke
           loop_count += 1
+          break if loop_times.present? && loop_count >= loop_times
         end while next_num
       end
 
