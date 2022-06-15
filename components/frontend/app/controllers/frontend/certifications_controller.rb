@@ -16,9 +16,7 @@ module Frontend
       phone = params[:phone].strip
       name = params[:name].strip
       attend_data = Backend::AttendDatum.where(phone: phone, name: name, allow_to_print: true)
-      if !attend_data.blank?
-        puts attend_data.inspect
-      end
+
       if attend_data.blank?
         session[:search_notifier] = "未找到您的报名信息，请重新查询； 如有疑问，请联系组委会工作人员。"
         redirect_to frontend.certifications_search_path 
@@ -32,13 +30,17 @@ module Frontend
       # click to print pdf, or download pdf.
     end
 
+    def search_by_school
+
+    end
+
     def results 
       attend_data_ids = params[:attend_data_ids] 
       if attend_data_ids.blank?
         redirect_to frontend.certifications_search_path
         return
       end
-      attend_data_ids = JSON.parse(attend_data_ids)
+      attend_data_ids = JSON.parse( json_escape(attend_data_ids) )
       @attend_data = Backend::AttendDatum.where(id: attend_data_ids, allow_to_print: true)
         
     end

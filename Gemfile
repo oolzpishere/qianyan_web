@@ -115,3 +115,5 @@ gem 'whenever', require: false
 
 gem 'caxlsx'
 gem 'caxlsx_rails'
+
+gem 'browser'
