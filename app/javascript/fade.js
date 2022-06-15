@@ -1,5 +1,7 @@
 document.addEventListener("turbo:load", function () {
 
+
+
   var noticeElement = document.querySelector(".notice");
   if (noticeElement){
     setTimeout(() => {
@@ -13,6 +15,14 @@ document.addEventListener("turbo:load", function () {
       fadeOut(alertElement)
     }, "5000")
   }
+
+  const closeBtns = document.querySelectorAll(".close")
+  closeBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      elem = this.parentElement;
+      fadeOut(elem)
+    })
+  });
 
   if (!window.requestAnimationFrame) {
     window.requestAnimationFrame = function (fn) {

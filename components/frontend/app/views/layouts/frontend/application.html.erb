@@ -14,20 +14,42 @@
   <div class="max-w-screen-xl  mx-auto ">
     <% if browser.ie? %>
       <%# browser.meta %>
-      <div class="relative p-2 bg-red-200 border rounded-b-2xl text-center">
-        您正在使用：<%= "#{browser.name}: #{browser.version}" %>, 本站不支持IE浏览</br>
-        请您使用最新版本的QQ浏览器、360浏览器（极速模式）、Chrome浏览器等访问本站
+      <div class="unsupport-ie-notice flex w-4/5 mx-auto relative p-2 bg-red-200 border rounded-b-2xl">
+        <div class="grow text-center">
+          您正在使用：<%= "#{browser.name}: #{browser.version}" %>, 本站不支持IE浏览</br>
+          请您使用最新版本的QQ浏览器、360浏览器（极速模式）、Chrome浏览器等访问本站
+        </div>
+        <div class="close ">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div> 
       </div>
     <% end %>
 
     <% if notice %>
-    <div class="notice relative p-2 bg-yellow-100 border rounded-b-2xl text-center" role="alert">
-      <%= notice %>
+    <div class="notice auto-fade flex w-4/5 mx-auto relative p-2 bg-yellow-100 border rounded-b-2xl " role="alert">
+      <div class="grow text-center">
+        <%= notice %>
+      </div>
+      <div class="close ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
     </div>
     <% end %>
+
     <% if alert %>
-    <div class="alert relative p-2 bg-red-200 border rounded-b-2xl text-center" role="alert">
-      <%= alert %>
+    <div class="alert auto-fade flex w-4/5 mx-auto relative p-2 bg-red-200 border rounded-b-2xl " role="alert">
+      <div class="grow text-center">
+        <%= alert %>
+      </div>
+      <div class="close ">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </div>
     </div>
     <% end %>
 

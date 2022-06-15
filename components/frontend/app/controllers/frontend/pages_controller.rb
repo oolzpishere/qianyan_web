@@ -4,7 +4,6 @@ module Frontend
 
     # GET /pages
     def index
-      # flash[:notice] = 'test notice' 
     end
 
     # GET /pages/1
