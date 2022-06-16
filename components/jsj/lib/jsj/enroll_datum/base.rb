@@ -146,8 +146,6 @@ module Jsj
           false
         elsif payed?
           true
-        elsif presend?
-          true
         elsif manual_sent?
           true
         else
