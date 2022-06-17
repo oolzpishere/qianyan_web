@@ -45,6 +45,8 @@ require "jsj/form_infos"
 
 require "jsj/jsj_fields"
 
+require "jsj/render_pdfs"
+
 module Jsj
   # Your code goes here...
 end
