@@ -11,19 +11,19 @@ module Jsj
 
       def render_guangxi_pdfs
         attend_form_data[1..-1].each do |attend_datum|
-          params = {}
-          params[:cert_bg_type] = 'guangxi'
-          params[:name] = attend_datum['name']
-          params[:date_range_str] = attend_datum['date_range_str']
-          params[:subject_name] = attend_datum['subject_name']
+          params = {
+            name: attend_datum['name'],
+            date_range_str: attend_datum['date_range_str'],
+            subject_name: attend_datum['subject_name']
+          }
 
-          render_pdf(params)
+          render_guangxi_pdf(params)
         end
       end
 
       private
 
-      def render_pdf(params)
+      def render_guangxi_pdf(params)
         pdf = Render.new.render_guangxi_pdf(params)
         file_name = [ params[:name] ].compact.join('-')
         pdf.render_file "#{Jsj::RenderPdfs.render_location}/#{file_name}.pdf"
