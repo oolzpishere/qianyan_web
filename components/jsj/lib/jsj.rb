@@ -46,6 +46,9 @@ require "jsj/form_infos"
 require "jsj/jsj_fields"
 
 require "jsj/render_pdfs"
+require "jsj/render_pdfs/jsj_form"
+require "jsj/render_pdfs/excel"
+require "jsj/render_pdfs/render"
 
 module Jsj
   # Your code goes here...
