@@ -15,9 +15,9 @@ module Frontend
     end
 
     def search_datum
-      phone = params[:phone].strip
-      name = params[:name].strip
-      attend_data = Backend::AttendDatum.where(phone: phone, name: name, allow_to_print: true)
+      name = certification_search_params[:name].strip 
+      phone = certification_search_params[:phone].strip
+      attend_data = Backend::AttendDatum.where({phone: phone, name: name, allow_to_print: true})
 
       if attend_data.blank?
         session[:search_notifier] = "未找到您的报名信息，请重新查询； 如有疑问，请联系组委会工作人员。"
@@ -68,40 +68,6 @@ module Frontend
       end
     end
 
-    # GET /certification_pdfs/new
-    def new
-      @certification_pdf = CertificationPdf.new
-    end
-
-    # GET /certification_pdfs/1/edit
-    def edit
-    end
-
-    # POST /certification_pdfs
-    def create
-      @certification_pdf = CertificationPdf.new(certification_pdf_params)
-
-      if @certification_pdf.save
-        redirect_to @certification_pdf, notice: "Certification pdf was successfully created."
-      else
-        render :new, status: :unprocessable_entity
-      end
-    end
-
-    # PATCH/PUT /certification_pdfs/1
-    def update
-      if @certification_pdf.update(certification_pdf_params)
-        redirect_to @certification_pdf, notice: "Certification pdf was successfully updated."
-      else
-        render :edit, status: :unprocessable_entity
-      end
-    end
-
-    # DELETE /certification_pdfs/1
-    def destroy
-      @certification_pdf.destroy
-      redirect_to certification_pdfs_url, notice: "Certification pdf was successfully destroyed."
-    end
 
     private
       # Use callbacks to share common setup or constraints between actions.
@@ -110,8 +76,8 @@ module Frontend
       # end
 
       # Only allow a list of trusted parameters through.
-      def certification_pdf_params
-        params.fetch(:certification_pdf, {})
+      def certification_search_params
+        params.fetch(:certification_search, {}).permit(:name, :phone)
       end
 
       def gen_pdf(attend_datum)
