@@ -16,6 +16,7 @@ module Jsj
             date_range_str: attend_datum['date_range_str'],
             subject_name: attend_datum['subject_name']
           }
+          params[:id] = attend_datum['id'] if attend_datum['id']
 
           render_guangxi_pdf(params)
         end
@@ -25,7 +26,7 @@ module Jsj
 
       def render_guangxi_pdf(params)
         pdf = Render.new.render_guangxi_pdf(params)
-        file_name = [ params[:name] ].compact.join('-')
+        file_name = [ params[:id], params[:name] ].compact.join('-')
         pdf.render_file "#{Jsj::RenderPdfs.render_location}/#{file_name}.pdf"
       end
 
