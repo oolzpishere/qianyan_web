@@ -118,3 +118,5 @@ gem 'caxlsx_rails'
 gem 'roo'
 
 gem 'browser'
+
+# gem 'invisible_captcha'

@@ -2,6 +2,8 @@
 module Frontend
   class CertificationsController < ApplicationController
     # before_action :set_certification, only: %i[ show edit update destroy ]
+    # invisible_captcha only: [:search]
+    
     include ActionView::Helpers::AssetUrlHelper
     # GET /certification_pdfs
     def index

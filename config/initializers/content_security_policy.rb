@@ -4,7 +4,7 @@
 # For further information see the following documentation
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
 
-# Rails.application.configure do
+Rails.application.configure do
 #   config.content_security_policy do |policy|
 #     policy.default_src :self, :https
 #     policy.font_src    :self, :https, :data
@@ -17,10 +17,10 @@
 #   end
 #
 #   # Generate session nonces for permitted importmap and inline scripts
-#   config.content_security_policy_nonce_generator = ->(request) { request.session.id.to_s }
-#   config.content_security_policy_nonce_directives = %w(script-src)
+  # config.content_security_policy_nonce_generator = ->(request) { request.session.id.to_s }
+  # config.content_security_policy_nonce_directives = %w(script-src)
 #
 #   # Report CSP violations to a specified URI. See:
 #   # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only
-#   # config.content_security_policy_report_only = true
-# end
+  # config.content_security_policy_report_only = true
+end
