@@ -8,6 +8,8 @@ require 'capybara/rails'
 require 'capybara/minitest'
 require 'mocha/minitest'
 
+require "#{File.dirname(__FILE__)}/support/helpers.rb"
+
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)

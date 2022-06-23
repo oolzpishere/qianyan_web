@@ -50,6 +50,8 @@ require "jsj/render_pdfs/jsj_form"
 require "jsj/render_pdfs/excel"
 require "jsj/render_pdfs/render"
 
+require "jsj/excel_upload"
+
 module Jsj
   # Your code goes here...
 end
