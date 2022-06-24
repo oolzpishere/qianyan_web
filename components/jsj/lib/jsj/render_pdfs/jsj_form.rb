@@ -22,14 +22,14 @@ module Jsj
 
       def render_pdf(attend_datum)
         cert_parser = Frontend::CertParser.new(attend_datum)
-        pdf = gen_country_pdf( attend_datum, cert_parser )
+        pdf = render_country_pdf( attend_datum, cert_parser )
         file_name = [attend_datum.school, attend_datum.name].compact.join('-')
         pdf.render_file "#{Jsj::RenderPdfs.render_location}/#{file_name}.pdf"
       end
 
       private
 
-        def gen_country_pdf(attend_datum, cert_parser)
+        def render_country_pdf(attend_datum, cert_parser)
           params = {
             name: attend_datum.name,
             date_range_str: cert_parser.date_range_str,
