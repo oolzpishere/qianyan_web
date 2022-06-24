@@ -1,13 +1,14 @@
 module Jsj
   class ExcelUpload
 
-    attr_reader :attend_data, :headers, :form_identify
+    attr_reader :attend_data, :headers, :form_identify, :form
 
     def initialize(file_path)
       sheet = Roo::Excelx.new(file_path).sheet(0)
       @attend_data = sheet.parse(headers: true, skip_blanks: true)[1..-1]
       @headers = @attend_data.first.keys
       @form_identify = @attend_data[0]['form_identify']
+      @form = find_or_create_form
     end
 
     def push_data
@@ -18,7 +19,7 @@ module Jsj
       attend_data.each do |datum|
         # _datum = datum.symbolize_keys
         Backend::AttendDatum.create({
-          conference_id: conference.id,
+          conference_id: form.conference.id,
           form_id: form.id,
 
           name: datum["姓名"],
@@ -55,35 +56,7 @@ module Jsj
     private
 
     def find_or_create_form
-      return false unless form_info
-
-      form = Backend::Form.find_by(form_identify: form_identify)
-      if form
-        form
-      else
-        create_form
-      end
-    end
-
-    def form_info
-     @form_info ||= Jsj::FormInfos.get_form_info(form_identify) 
-    end
-
-    def create_form
-      Backend::Form.create({
-        conference_id: conference.id,
-        form_identify: form_identify,
-        name: form_info[:name],
-        form_type: :excel
-      })
-    end
-
-    def conference
-      @conference ||= Backend::Conference.find_by( 
-        year: form_info[:year], 
-        season: form_info[:season], 
-        subject_eng_name: form_info[:subject_eng_name] 
-      )
+      Jsj::CreateForm.new(form_identify).find_or_create_form
     end
 
     def payed?(str)

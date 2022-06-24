@@ -9,8 +9,13 @@ module Admin
 
     # GET /manager/attend_data
     def index
-      jsj_form_id = params[:jsj_forms]
-      @attend_data = Backend::AttendDatum.includes(:jsj_form).where({ jsj_form_id: jsj_form_id }).order(:jsj_id)
+      form_id = params[:form_id]
+      form_type = params[:form_type]
+      unless ["jsj_form", "form"].include?(form_type)
+        redirect_to attend_data_select_path, alert: "form_type: #{form_type} is invalid."
+      end
+
+      @attend_data = Backend::AttendDatum.includes(:jsj_form, :form).where({ "#{form_type}_id" => form_id }).order(id: :desc)
     end
 
     # GET /manager/attend_data/1

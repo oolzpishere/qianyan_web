@@ -19,15 +19,17 @@
             <div class="">
               <!-- <h5 class="card-title">Special title treatment</h5> -->
               <ul class="">
-                <% conference.jsj_forms.each do |jsj_form| %>
-                  <% id = jsj_form.id %>
-                  <% name = jsj_form.name %>
-                  <% identify = jsj_form.form_identify %>
+                <% conf_forms = conference.jsj_forms + conference.forms %>
+                <% conf_forms.each do |form| %>
+                  <% form = Backend::CombineForm.create(form) %>
+                  <% id = form.id %>
+                  <% name = form.name %>
+                  <% identify = form.form_identify %>
                   <li class="border-y p-3">
-                    <%= link_to "#{name}: #{identify}", "#{manager_attend_data_path}?jsj_forms=#{id}", class: "btn btn-sm btn-primary"  %>
+                    <%= link_to "#{name}: #{identify}", "#{manager_attend_data_path}?form_type=#{form.table_name}&form_id=#{id}", class: "btn btn-sm btn-primary"  %>
                     <div class="btn btn-sm btn-success">
-                      <%= Backend::AttendDatum.where(jsj_form_id: id).length %> , 
-                      <%= Backend::AttendDatum.where(jsj_form_id: id, allow_to_print: true).length %>
+                      <%= Backend::AttendDatum.where(form.foreign_key => id).length %> , 
+                      <%= Backend::AttendDatum.where(form.foreign_key => id, allow_to_print: true).length %>
                     </div>
                   </li>
                 <% end %>

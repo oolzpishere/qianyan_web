@@ -1,6 +1,7 @@
 require "jsj/version"
 require "jsj/engine"
 
+require "jsj/create_form"
 
 require "jsj/enroll_datum"
 require "jsj/enroll_datum/create_parser"
