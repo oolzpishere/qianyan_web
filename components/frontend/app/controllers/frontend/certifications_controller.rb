@@ -109,31 +109,6 @@ module Frontend
           date_range_str: cert_parser.date_range_str,
           subject_name: cert_parser.conference.sms_conf_name
         })
-        # image = MiniMagick::Image.open("certs/nation.jpg")
-        # assets_path = Rails.root.join('app', 'assets')
-        # public_path = Rails.root.join('public')
-        # backgroud_image = assets_path.join('images', 'certs', "#{cert_parser.cert_bg_type}.jpg")
-        # pdf = Prawn::Document.new(page_size: [1280, 950], 
-        #                           page_layout: :portrait,
-        #                           background:  backgroud_image)
-        # # pdf.image(app.asset_path("ccerts/nation.jpgerts/nation.jpg"), width: pdf.bounds.width, height: pdf.bounds.height)
-        # pdf.font_families.update( 
-        #   'songti' => {
-        #     normal: {file: "#{public_path}/fonts/FZ30.TTF"}
-        #   },
-        #   'msyh' => {
-        #   normal: { file: "#{public_path}/fonts/msyh.ttf" }
-        # })
-        # pdf.fallback_fonts(['msyh'])
-        # pdf.font("songti", size: 26)
-
-        #   # pdf.stroke_axis
-        # pdf.text_box(attend_datum.name, at: [270,620] )
-        # pdf.draw_text(cert_parser.date_range_str, at: [595,595])
-        # # pdf.move_down 25
-        # pdf.draw_text cert_parser.conference.sms_conf_name, :at => [175,535]
-        # pdf.draw_text cert_parser.conference.sms_conf_name, :at => [904,535]
-        # pdf
       end
 
       def gen_student_pdf(attend_datum, cert_parser)
