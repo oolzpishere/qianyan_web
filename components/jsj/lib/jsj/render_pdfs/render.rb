@@ -2,6 +2,7 @@ module Jsj
   module RenderPdfs
     class Render
 
+      # {name: "", date_range_str: "", subject_name: ""}
       def render_guangxi_pdf( params = {})
         backgroud_image = Jsj::RenderPdfs.assets_path.join('images', 'certs', "guangxi.jpg")
         pdf = Prawn::Document.new(page_size: [1280, 950], 
@@ -22,9 +23,10 @@ module Jsj
         pdf
       end
       
+      # {name: "", date_range_str: "", subject_name: ""}
       def render_country_pdf( params = {})
         # image = MiniMagick::Image.open("certs/nation.jpg")
-        backgroud_image = Jsj::RenderPdfs.assets_path.join('images', 'certs', "nation.jpg")
+        backgroud_image = Jsj::RenderPdfs.assets_path.join('images', 'certs', "country.jpg")
         pdf = Prawn::Document.new(page_size: [1280, 950],
                                   page_layout: :portrait,
                                   background:  backgroud_image)

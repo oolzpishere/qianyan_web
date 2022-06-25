@@ -13,6 +13,7 @@ module Frontend
 
     def cert_bg_type
       form_type = Jsj::FormInfos.get_form_type(jsj_form.form_identify)
+
       case form_type
       when 'email'
         GUANGXI_CERT_BG_TYPE 
