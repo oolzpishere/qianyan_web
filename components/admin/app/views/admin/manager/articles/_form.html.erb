@@ -11,15 +11,27 @@
     </div>
   <% end %>
 
-  <%= form.text_field :title %>
-  <div class="field">
-    <%= form.label :content %>
+  <div class='w-full mt-5'>
+    <%= form.label '标题:' %>
+    <%= form.text_field :title, class: 'form-input rounded' %>
+  </div>
+
+  <div class="field mt-5">
+    <%# form.label '正文:' %>
     <%= form.rich_text_area :content %>
   </div>
-  <%= form.text_field :author %>
-  <%= form.text_field :source_url %>
 
-  <div>
-    <%= form.submit %>
+  <div class='w-full mt-5'>
+    <%= form.label '作者:' %>
+    <%= form.text_field :author, class: 'form-input rounded' %>
+  </div>
+
+  <div class='w-full mt-5'>
+    <%= form.label '来源:' %>
+    <%= form.text_field :source_url, class: 'form-input rounded' %>
+  </div>
+
+  <div class='mt-5'>
+    <%= form.submit class: 'btn btn-sm btn-success' %>
   </div>
 <% end %>

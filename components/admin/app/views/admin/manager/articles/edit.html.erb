@@ -1,10 +1,12 @@
-<h1>Editing article</h1>
+<div class="max-w-screen-lg mx-auto">
+  <h1>编辑文章</h1>
 
-<%= render "form", article: @article %>
+  <%= render "form", article: @article %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this article", manager_article_path(@article) %>
-  <%= link_to "Back to articles", manager_articles_path %>
+  <div class='mb-5'>
+    <%= link_to "Show this article", manager_article_path(@article), class: 'btn btn-sm btn-primary' %>
+    <%= link_to "Back to articles", manager_articles_path, class: 'btn btn-sm btn-gray' %>
+  </div>
 </div>
