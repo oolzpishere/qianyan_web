@@ -3,5 +3,9 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import 'trix/dist/trix.css';
+@import 'actiontext.css';
+
 @import "./components";
+
 /* @import "./frontend"; */

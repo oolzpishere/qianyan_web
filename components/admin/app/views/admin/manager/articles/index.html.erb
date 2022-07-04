@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Articles</h1>
+
+<div id="manager_articles">
+  <% @articles.each do |article| %>
+    <%= render partial: "article", locals: { article: article } %>
+    <p>
+      <%= link_to "Show this article", manager_article_path(article) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New article", new_manager_article_path %>
