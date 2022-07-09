@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_03_140834) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_06_083207) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -62,13 +62,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_03_140834) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "article_tags", force: :cascade do |t|
+    t.string "name"
+    t.string "identify"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "articles", force: :cascade do |t|
-    t.json "tags"
     t.string "title"
     t.string "author"
     t.string "source_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "articles_article_tags", id: false, force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "article_tag_id"
+    t.index ["article_id"], name: "index_articles_article_tags_on_article_id"
+    t.index ["article_tag_id"], name: "index_articles_article_tags_on_article_tag_id"
   end
 
   create_table "attend_data", force: :cascade do |t|

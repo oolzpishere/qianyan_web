@@ -56,3 +56,8 @@ Backend::Conference.create([
     start_date: "2022/5/30",
     finish_date: "2022/5/31"},
 ])
+
+Backend::ArticleTag.create([
+    { name: "热点资讯", identify: "top_news" },
+    { name: "前沿资讯", identify: "qianyan_news" },
+])

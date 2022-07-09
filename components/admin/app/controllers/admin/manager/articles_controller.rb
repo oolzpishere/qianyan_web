@@ -22,9 +22,13 @@ module Admin
 
     # POST /manager/articles
     def create
-      @article = Backend::Article.new(article_params)
+      _article_params = article_params
+      article_tags_params = _article_params.delete(:articles_article_tags)
+      @article = Backend::Article.new(_article_params)
 
       if @article.save
+        update_article_tags(@article, article_tags_params)
+
         redirect_to manager_articles_path(@article), notice: "Article was successfully created."
       else
         render :new, status: :unprocessable_entity
@@ -33,8 +37,13 @@ module Admin
 
     # PATCH/PUT /manager/articles/1
     def update
-      if @article.update(article_params)
-        redirect_to @article, notice: "Article was successfully updated."
+      _article_params = article_params
+      article_tags_params = _article_params.delete(:articles_article_tags)
+      
+      update_article_tags(@article, article_tags_params)
+
+      if @article.update(_article_params)
+        redirect_to manager_article_path(@article), notice: "Article was successfully updated."
       else
         render :edit, status: :unprocessable_entity
       end
@@ -54,7 +63,30 @@ module Admin
 
       # Only allow a list of trusted parameters through.
       def article_params
-        params.fetch(:article, {}).permit(:title, :content, :author, :source_url)
+        params.fetch(:article, {}).permit(:title, :content, :author, :source_url, articles_article_tags: [])
       end
+
+      def update_article_tags(article, article_tags_params)
+        article_tags = parse_article_tags_params(article_tags_params)
+
+        # compare with db
+        # if difference, 
+        unless @article.article_tags.map(&:id).sort == article_tags.sort
+          # delete all article tags
+          @article.article_tags.delete_all
+          return if article_tags.blank?
+
+          # add new article tags
+          article_tags.each do |tag_id|
+            @article.articles_article_tags.create(article_tag_id: tag_id)
+          end
+        end
+      end
+
+      def parse_article_tags_params(article_tags_params)
+        article_tags_params.delete_if {|tag| tag.blank? }
+        article_tags_params.map(&:to_i)
+      end
+
   end
 end

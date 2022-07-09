@@ -15,6 +15,10 @@
           <%= article.author %>
         </div>
 
+        <div class='h4'> ArticleTags: 
+          <%= article.article_tags.ids %>
+        </div>
+        
         <div class=''>
           updated at:
           <%= article.updated_at.localtime %>

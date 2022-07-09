@@ -6,6 +6,8 @@
 @import 'trix/dist/trix.css';
 @import 'actiontext.css';
 
+@import 'choices.js/public/assets/styles/choices.css';
+
 @import "./components";
 
 /* @import "./frontend"; */
