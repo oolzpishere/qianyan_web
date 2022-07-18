@@ -1,11 +1,12 @@
-<% form_url = article.persisted? ? manager_article_path(@article) : manager_articles_path %>
-<%= form_with(model: article, url: form_url) do |form| %>
-  <% if article.errors.any? %>
+
+<% form_url = external_article.persisted? ? manager_external_article_path(external_article) : manager_external_articles_path %>
+<%= form_with(model: external_article, url: form_url) do |form| %>
+  <% if external_article.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this manager_article from being saved:</h2>
+      <h2><%= pluralize(external_article.errors.count, "error") %> prohibited this manager_external_article from being saved:</h2>
 
       <ul>
-        <% article.errors.each do |error| %>
+        <% external_article.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -19,17 +20,12 @@
 
   <div class='w-full mt-5'>
     <%= form.label 'tags:' %>
-    <%= article.article_tags.ids %>
+    <%= external_article.article_tags.ids %>
     <%= form.select :article_tags, 
-                    options_from_collection_for_select(Backend::ArticleTag.all, :id, :name, article.article_tags.ids),
+                    options_from_collection_for_select(Backend::ArticleTag.all, :id, :name, external_article.article_tags.ids),
                     { include_blank: true }, 
                     { :multiple => true, class: 'choice form-input rounded'} %>
 
-  </div>
-  
-  <div class="field mt-5">
-    <%# form.label '正文:' %>
-    <%= form.rich_text_area :content %>
   </div>
 
   <div class='w-full mt-5'>
@@ -42,7 +38,8 @@
     <%= form.text_field :source_url, class: 'form-input rounded' %>
   </div>
 
-  <div class='mt-5'>
-    <%= form.submit class: 'btn btn-sm btn-success' %>
+
+  <div>
+    <%= form.submit  class: 'btn btn-sm btn-success mt-5'  %>
   </div>
 <% end %>

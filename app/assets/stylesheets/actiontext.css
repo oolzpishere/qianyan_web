@@ -26,6 +26,11 @@
 }
 
 .trix-content action-text-attachment .attachment {
+  margin: auto !important;
   padding: 0 !important;
   max-width: 100% !important;
+}
+
+.trix-content action-text-attachment .attachment img{
+  margin: auto !important;
 }

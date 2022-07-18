@@ -1,5 +1,6 @@
 Admin::Engine.routes.draw do
   namespace :manager do
+    resources :external_articles
     resources :articles
 
     get 'attend_data/select' => 'attend_data#select'

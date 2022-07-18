@@ -1,0 +1,9 @@
+
+<%= render partial: 'external_article', locals: {external_article: @external_article} %>
+
+<div>
+  <%= link_to "Edit this external article", edit_manager_external_article_path(@external_article), class: 'btn btn-sm btn-primary' %> |
+  <%= link_to "Back to external articles", manager_external_articles_path,  class: "btn btn-sm btn-gray" %>
+
+  <%= button_to "Destroy this external article", manager_article_path(@external_article), method: :delete, class: 'btn btn-sm btn-danger my-5' %>
+</div>

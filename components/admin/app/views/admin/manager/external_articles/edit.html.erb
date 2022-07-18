@@ -1,0 +1,11 @@
+<h1>Editing external article</h1>
+
+<%= render "form", external_article: @external_article %>
+
+<br>
+
+<div class='mb-5'>
+  <%= link_to "Show this external article", manager_external_article_path(@external_article), class: 'btn btn-sm btn-primary' %>
+ |
+  <%= link_to "Back to external articles", manager_external_articles_path, class: 'btn btn-sm btn-gray' %>
+</div>

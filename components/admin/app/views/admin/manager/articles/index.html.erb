@@ -2,6 +2,8 @@
 <div class="max-w-screen-lg mx-auto">
   <h1>全部文章</h1>
 
+  <%= link_to "External article", manager_external_articles_path, class: 'btn btn-sm btn-cyan mt-5' %>
+
   <div id="manager_articles" class="grid grid-cols-3 gap-4 mt-5">
     <% @articles.each do |article| %>
       <div class='border p-3 shadow-xl'>

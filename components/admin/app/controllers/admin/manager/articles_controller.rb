@@ -23,11 +23,12 @@ module Admin
     # POST /manager/articles
     def create
       _article_params = article_params
-      article_tags_params = _article_params.delete(:articles_article_tags)
+      article_tags_params = _article_params.delete(:article_tags)
       @article = Backend::Article.new(_article_params)
 
       if @article.save
-        update_article_tags(@article, article_tags_params)
+        ::Admin::UpdateArticleTagsService::Base.new(@article, article_tags_params).update
+        # update_article_tags(@article, article_tags_params)
 
         redirect_to manager_articles_path(@article), notice: "Article was successfully created."
       else
@@ -38,9 +39,10 @@ module Admin
     # PATCH/PUT /manager/articles/1
     def update
       _article_params = article_params
-      article_tags_params = _article_params.delete(:articles_article_tags)
+      article_tags_params = _article_params.delete(:article_tags)
       
-      update_article_tags(@article, article_tags_params)
+      ::Admin::UpdateArticleTagsService::Base.new(@article, article_tags_params).update
+      # update_article_tags(@article, article_tags_params)
 
       if @article.update(_article_params)
         redirect_to manager_article_path(@article), notice: "Article was successfully updated."
@@ -63,7 +65,7 @@ module Admin
 
       # Only allow a list of trusted parameters through.
       def article_params
-        params.fetch(:article, {}).permit(:title, :content, :author, :source_url, articles_article_tags: [])
+        params.fetch(:article, {}).permit(:title, :content, :author, :source_url, article_tags: [])
       end
 
       def update_article_tags(article, article_tags_params)

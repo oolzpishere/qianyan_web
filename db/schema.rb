@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_06_083207) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_13_101004) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -79,8 +79,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_083207) do
 
   create_table "articles_article_tags", id: false, force: :cascade do |t|
     t.integer "article_id"
+    t.integer "external_article_id"
     t.integer "article_tag_id"
-    t.index ["article_id"], name: "index_articles_article_tags_on_article_id"
     t.index ["article_tag_id"], name: "index_articles_article_tags_on_article_tag_id"
   end
 
@@ -128,6 +128,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_06_083207) do
     t.date "start_date"
     t.date "finish_date"
     t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "external_articles", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "source_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

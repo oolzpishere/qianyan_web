@@ -1,4 +1,5 @@
 Frontend::Engine.routes.draw do
+  resources :articles
   root to: 'pages#index'
 
   get 'corp', to: 'pages#corp'

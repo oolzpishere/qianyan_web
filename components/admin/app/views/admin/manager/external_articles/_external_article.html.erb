@@ -1,0 +1,30 @@
+<div id="<%= dom_id external_article %>">
+  <div class='h4'> 
+    Title: 
+    <%= external_article.title %>
+  </div>
+
+  <div class='h4'>
+    Source_url:
+    <%= external_article.source_url %>
+  </div>
+
+  <div class='h4'> 
+    Author: 
+    <%= external_article.author %>
+  </div>
+
+  <div class='h4'> ArticleTags: 
+    <%= external_article.article_tags.ids %>
+  </div>
+  
+  <div class=''>
+    updated at:
+    <%= external_article.updated_at.localtime %>
+  </div>
+
+  <div class=''>
+    created_at: 
+    <%= external_article.created_at.localtime %>
+  </div>
+</div>

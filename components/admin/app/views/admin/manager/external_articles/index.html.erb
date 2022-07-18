@@ -1,0 +1,20 @@
+<div class="max-w-screen-lg mx-auto">
+
+  <h1>External articles</h1>
+
+  <div id="manager_external_articles" class="grid grid-cols-3 gap-4 mt-5">
+    <% @external_articles.each do |external_article| %>
+        <div class='border p-3 shadow-xl'>
+
+
+        <%= render partial: 'external_article', locals: {external_article: external_article} %>
+        <p>
+          <%= link_to "Show this external article", manager_external_article_path(external_article), class: 'btn btn-sm btn-primary mt-3' %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to "New external article", new_manager_external_article_path, class: 'btn btn-sm btn-success mt-5'  %>
+
+</div>
