@@ -12,7 +12,7 @@ module Frontend
     test "visiting the index" do
       visit "/"
       # header
-      assert_content "首页\n前沿课堂\n学时证明"
+      assert_content "首页\n前沿资讯\n学时证明"
       # body
       assert_content "2022年春“前沿课堂”\n全国小学语文、数学、英语\n教学观摩研讨会学时证明查询"
       # footer
