@@ -1,19 +1,21 @@
-<header class="xl:container mx-auto relative h-[350px] rounded-bottom bg-bottom" style="background-image: url( <%=asset_path 'cert_header_bg.png'%> )">
-  <div class="w-4/5 mx-auto relative flex justify-around content-center py-3 rounded-b-3xl shadow-2xl"  style="background-color: #FF4A00;">
-
-    <%=render 'layouts/frontend/nav' %>
-
-
+<header class="xl:container mx-auto relative h-[220px] lg:h-[350px] rounded-bottom z-0 " >
+  <div class='absolute w-full h-full bg-top lg:bg-bottom -z-10' style="top: 0; left: 0;background-image: url( <%=asset_path 'cert_header_bg.png'%> )">
   </div>
 
-  <div class="w-4/5 mx-auto">
-    <div class=" mt-16 ml-24 ">
-      <span class="h2 text-white leading-normal">
+  <%=render 'layouts/frontend/header_nav' %>
+
+  <!-- mobile_nav -->
+  <%=render 'layouts/frontend/mobile_nav' %> 
+
+  <div class="lg:w-4/5 mx-auto">
+    <div class="  ">
+      <p class="h3 lg:h2 text-center lg:text-left text-white leading-normal p-5 lg:p-0 lg:mt-16 lg:ml-24">
         2022年春“前沿课堂”</br>
         全国小学语文、数学、英语</br>
         教学观摩研讨会学时证明查询      
-      </span>
+      </p>
     </div>
   </div>
+
 
 </header>

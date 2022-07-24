@@ -1,15 +1,13 @@
-<header class="xl:container mx-auto relative h-[350px] rounded-bottom bg-bottom" style="background-image: url( <%=asset_path 'header-bg-blue.png'%> )">
-  <div class="w-4/5 mx-auto relative flex justify-around content-center py-3 rounded-b-3xl shadow-lg"  style="background-color: #FF4A00;">
+<header class="xl:container mx-auto relative h-[220px] lg:h-[350px] rounded-bottom bg-bottom" style="background-image: url( <%=asset_path 'header-bg-blue.png'%> )">
+  <%=render 'layouts/frontend/header_nav' %>
 
-    <%=render 'layouts/frontend/nav' %>
+  <!-- mobile_nav -->
+  <%=render 'layouts/frontend/mobile_nav' %> 
 
-  </div>
-
-  <div class="w-full text-white h2 flex justify-center mt-28">
-    <div>
+  <div class="w-full text-white h2 flex justify-center ">
+    <div class="mt-14 lg:mt-28">
       <%= @navs_inst.current_nav[:name] %>
     </div>
   </div>
-
 
 </header>

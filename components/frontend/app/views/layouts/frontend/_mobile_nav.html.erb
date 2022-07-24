@@ -1,0 +1,30 @@
+<div  class="lg:hidden  mx-auto relative w-full  py-3 shadow-lg"  style="background-color: #FF4A00; ">
+  <div class="relative flex justify-between content-center px-5">
+    <div>
+      <%# image_tag( 'header/text.png' ) %> 
+    </div>
+
+    <div data-controller="menu"
+        data-action="click->menu#toggle" 
+        data-menu-toggle-state-value="hide"
+        id='menu-toggle-btn' class='lg:hidden text-white'>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+      </svg>
+    </div>
+  </div> 
+
+</div>
+
+<div id="drop_down_mobile_nav" class="hidden lg:hidden relative z-10" >
+  <ul class="absolute  py-3  w-full rounded-b-3xl shadow-lg" style="background-color: #FF4A00; top: -1px; left: 0px;" >
+    <% @navs.each do |nav| %>
+      <%= tag.li class: 'px-3' do %>
+        <% classes = nav[:active] ? 'text-[#FF4A00] bg-white' : 'text-white' %>
+        <% classes += ' py-1 px-3 rounded-full'  %>
+        <%= link_to nav[:name], nav[:path], class: classes %>
+      <% end %>
+    <% end %>
+
+  </ul>
+</div>
